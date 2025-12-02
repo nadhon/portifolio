@@ -1,60 +1,139 @@
+/* ================================
+   VARIÁVEIS DE TEMA
+================================ */
+:root {
+    --cor-fundo: #0d0d0d;
+    --cor-texto: #f2f2f2;
+    --cor-secundaria: #b300ff;
+    --cor-detalhe: #ff0066;
+    --cor-card: #1a1a1a;
 
-.parent {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 11px;
-}
-    
-.div1 {
-    grid-column: span 5 / span 5;
-}
-
-.div2 {
-    grid-row: span 3 / span 3;
-    grid-column-start: 1;
-    grid-row-start: 2;
+    --fonte-titulo: 'Arial', sans-serif;
+    --fonte-texto: 'Verdana', sans-serif;
 }
 
-.div3 {
-    grid-row: span 3 / span 3;
-    grid-column-start: 2;
-    grid-row-start: 2;
+/* ================================
+   RESET
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.div4 {
-    grid-row: span 3 / span 3;
-    grid-column-start: 3;
-    grid-row-start: 2;
+body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-texto);
+    padding: 20px;
+    line-height: 1.6;
 }
 
-.div5 {
-    grid-row: span 3 / span 3;
-    grid-column-start: 4;
-    grid-row-start: 2;
+/* ================================
+   HEADER PRINCIPAL
+================================ */
+header.curriculo {
+    text-align: center;
+    padding: 30px 10px;
+    background: var(--cor-card);
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px #00000055;
 }
 
-.div6 {
-    grid-row: span 3 / span 3;
-    grid-column-start: 5;
-    grid-row-start: 2;
+header.curriculo h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 10px;
 }
 
-.div7 {
-    grid-column: span 5 / span 5;
-    grid-column-start: 1;
-    grid-row-start: 5;
+/* ================================
+   SEÇÕES
+================================ */
+section {
+    margin: 25px 0;
+    padding: 20px;
+    background: var(--cor-card);
+    border-radius: 10px;
 }
 
-.div8 {
-    grid-row: span 2 / span 2;
-    grid-column-start: 6;
-    grid-row-start: 1;
+section h1 {
+    font-size: 1.6rem;
+    color: var(--cor-detalhe);
+    margin-bottom: 15px;
 }
 
-.div9 {
-    grid-row: span 3 / span 3;
-    grid-column-start: 6;
-    grid-row-start: 3;
+/* ================================
+   SOBRE MIM
+================================ */
+.sobre-mim {
+    padding: 150px;
+    padding: 15px;
+    border-left: 4px solid var(--cor-secundaria);
 }
-        
+
+.sobre-mim h1 {
+    color: var(--cor-secundaria);
+}
+
+.sobre-mim p {
+    margin-top: 10px;
+}
+
+/* ================================
+   IDENTIDADE / FOTO
+================================ */
+.id {
+    padding: 20px;
+    background: var(--cor-card);
+    border-radius: 10px;
+}
+
+.id figure {
+    width: 160px;
+    height: 160px;
+    background: #333;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+.id img{
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+}
+
+.id p {
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* ================================
+   LISTA DE CONTATOS
+================================ */
+ul {
+    list-style: none;
+}
+
+ul li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+}
+
+ul li:hover {
+    color: var(--cor-secundaria);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* ================================
+   FOOTER
+================================ */
+footer {
+    margin-top: 25px;
+    text-align: center;
+    opacity: 0.6;
+}

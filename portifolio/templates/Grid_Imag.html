@@ -1,25 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifolio</title>
-    <link rel="stylesheet" href="portifolio\Static\styles.css">
+    <link rel="stylesheet" href="../stiles/styles.css">
+
 </head>
 <body>
-    <h1>Image Grid</h1>
-    
-    <div class="parent">
-        <div class="div1">1</div>
-        <div class="div2">2</div>
-        <div class="div3">3</div>
-        <div class="div4">4</div>
-        <div class="div5">5</div>
-        <div class="div6">6</div>
-        <div class="div7">7</div>
-        <div class="div8">8</div>
-        <div class="div9">9</div>
-    </div>
+   <header class="curriculo">
+    <h1>Nadhon josé silva de aquino</h1>
+    <nav class="Menu">
+        <ul>
+            <li><a href="inde.html">Inicio</a></li>
+            <li><a href="galeria.html">Inicio</a></li>
+            <li><a href="inde.html">Inicio</a></li>
+            <li><a href="inde.html">Inicio</a></li>
+        </ul>
+    </nav>
+    <section class="atributos">
+        <header class="modificadores">
+            <h1>sobre mim</h1>
+            <article class="sobre-mim">
+                <header>
+                    <h1>eu</h1>
+                    <time>4 anos</time>
+                    <p>minimamente</p>
+                </header>
+            </article>
+        </header>
+    </section>
+    <article class="id">
+        <header>
+            <h1>Esse sou eu</h1>
+            <figure>
+                <img src="../stiles/FB_IMG_1722882410808.jpg"/>
+            </figure>
+            <p>desenhista nas horas vagas</p>
+        </header>
+    </article>
+    <section>
+        <header>
+            <h1>
+                contatos
+            </h1>
+            <ul>
+                <li>facebook</li>
+                <li>twitter</li>
+                <li>whatsapp</li>
+            </ul>
+        </header>
+    </section>
+    <footer> aprendendo programação desde 2020</footer>
+   </header>
     
 </body>
 </html>
+<script>
+    const links = document.querySelectorAll('.menu a');
+    links.forEach(a =>{
+        if(a.href === location.href || location.pathname.endsWith(a.getAttribute('href'))){
+            a.classList.add('ativo')
+        }
+    });
+</script>
