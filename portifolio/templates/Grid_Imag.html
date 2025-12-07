@@ -1,66 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifolio</title>
-    <link rel="stylesheet" href="../stiles/styles.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio — Nadhon José</title>
+  <link rel="stylesheet" href="../stiles/styles.css" />
 </head>
 <body>
-   <header class="curriculo">
-    <h1>Nadhon josé silva de aquino</h1>
-    <nav class="Menu">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>Nadhon José</h1>
+        <p class="subtitle">Ilustrador & artista visual</p>
+      </div>
+
+      <nav class="Menu" aria-label="Menu principal">
         <ul>
-            <li><a href="inde.html">Inicio</a></li>
-            <li><a href="galeria.html">Inicio</a></li>
-            <li><a href="inde.html">Inicio</a></li>
-            <li><a href="inde.html">Inicio</a></li>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
         </ul>
-    </nav>
-    <section class="atributos">
-        <header class="modificadores">
-            <h1>sobre mim</h1>
-            <article class="sobre-mim">
-                <header>
-                    <h1>eu</h1>
-                    <time>4 anos</time>
-                    <p>minimamente</p>
-                </header>
-            </article>
-        </header>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="intro card">
+      <div class="profile">
+        <figure>
+          <img src="../stiles/FB_IMG_1722882410808.jpg" alt="Foto de Nadhon José" />
+        </figure>
+      </div>
+
+      <div class="bio">
+        <h2>Sobre mim</h2>
+        <p>Desenhista nas horas vagas — aprendendo programação desde 2020. Trabalho com ilustração digital e estudo técnicas de composição e cor.</p>
+
+        <ul class="stats">
+          <li><strong>50+</strong><span>Projetos</span></li>
+          <li><strong>4</strong><span>Anos</span></li>
+          <li><strong>∞</strong><span>Paixão</span></li>
+        </ul>
+
+        <a class="btn" href="galeria.html">Ver Galeria →</a>
+      </div>
     </section>
-    <article class="id">
-        <header>
-            <h1>Esse sou eu</h1>
-            <figure>
-                <img src="../stiles/FB_IMG_1722882410808.jpg"/>
-            </figure>
-            <p>desenhista nas horas vagas</p>
-        </header>
-    </article>
-    <section>
-        <header>
-            <h1>
-                contatos
-            </h1>
-            <ul>
-                <li>facebook</li>
-                <li>twitter</li>
-                <li>whatsapp</li>
-            </ul>
-        </header>
+
+    <section class="contatos card">
+      <h2>Contatos</h2>
+      <ul>
+        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://wa.me/55999" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
     </section>
-    <footer> aprendendo programação desde 2020</footer>
-   </header>
-    
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Aprendendo programação desde 2020 — © <span id="ano"></span></p>
+    </div>
+  </footer>
 </body>
 </html>
+
 <script>
-    const links = document.querySelectorAll('.menu a');
-    links.forEach(a =>{
-        if(a.href === location.href || location.pathname.endsWith(a.getAttribute('href'))){
-            a.classList.add('ativo')
-        }
-    });
+    // ativa link do menu que corresponde à página atual
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.Menu a');
+
+  links.forEach(a => {
+    // compara o href absoluto com location.href ou compara apenas o nome do arquivo
+    try {
+      const linkUrl = new URL(a.href, location.origin);
+      const same = linkUrl.pathname === location.pathname || location.pathname.endsWith(a.getAttribute('href'));
+      if (same) a.classList.add('ativo');
+    } catch (e) {
+      // fallback simples
+      if (a.getAttribute('href') && location.pathname.endsWith(a.getAttribute('href'))) {
+        a.classList.add('ativo');
+      }
+    }
+  });
+
+  // atualiza ano no footer
+  const ano = new Date().getFullYear();
+  const anoEl = document.getElementById('ano');
+  if (anoEl) anoEl.textContent = ano;
+});
 </script>

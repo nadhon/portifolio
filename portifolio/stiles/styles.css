@@ -1,139 +1,177 @@
-/* ================================
-   VARIÁVEIS DE TEMA
-================================ */
-:root {
-    --cor-fundo: #0d0d0d;
-    --cor-texto: #f2f2f2;
-    --cor-secundaria: #b300ff;
-    --cor-detalhe: #ff0066;
-    --cor-card: #1a1a1a;
-
-    --fonte-titulo: 'Arial', sans-serif;
-    --fonte-texto: 'Verdana', sans-serif;
+:root{
+  --bg:#0b0b0c;
+  --card:#0f1113;
+  --muted:#9aa0a6;
+  --accent:#e53935; /* vermelho */
+  --accent-2:#f6c23e; /* amarelo */
+  --radius:14px;
+  --container-width:1100px;
+  --gap:20px;
+  --text:#ffffff;
+  --glass: rgba(255,255,255,0.03);
 }
 
-/* ================================
-   RESET
-================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
 }
 
-body {
-    background: var(--cor-fundo);
-    color: var(--cor-texto);
-    font-family: var(--fonte-texto);
-    padding: 20px;
-    line-height: 1.6;
+/* Container central */
+.container{
+  width:100%;
+  max-width:var(--container-width);
+  margin:0 auto;
+  padding:24px;
 }
 
-/* ================================
-   HEADER PRINCIPAL
-================================ */
-header.curriculo {
-    text-align: center;
-    padding: 30px 10px;
-    background: var(--cor-card);
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 20px #00000055;
+/* Header */
+.site-header{
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--gap);
+}
+.brand h1{
+  margin:0;
+  font-size:1.25rem;
+  letter-spacing:0.06em;
+}
+.brand .subtitle{
+  margin:4px 0 0 0;
+  color:var(--muted);
+  font-size:0.85rem;
 }
 
-header.curriculo h1 {
-    font-family: var(--fonte-titulo);
-    font-size: 2.2rem;
-    color: var(--cor-secundaria);
-    margin-bottom: 10px;
+/* Nav */
+.Menu ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.Menu a{
+  display:inline-block;
+  padding:10px 14px;
+  color:var(--muted);
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:600;
+  transition:all .18s ease;
+}
+.Menu a:hover{ color:var(--text); background:var(--glass) }
+.Menu a.ativo{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#111;
+  box-shadow:0 6px 20px rgba(0,0,0,0.6);
 }
 
-/* ================================
-   SEÇÕES
-================================ */
-section {
-    margin: 25px 0;
-    padding: 20px;
-    background: var(--cor-card);
-    border-radius: 10px;
+/* Main content */
+.main-content{
+  padding-top:36px;
+  padding-bottom:80px;
+  display:grid;
+  gap:24px;
+  grid-template-columns:1fr;
 }
 
-section h1 {
-    font-size: 1.6rem;
-    color: var(--cor-detalhe);
-    margin-bottom: 15px;
+/* Card */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:var(--radius);
+  padding:18px;
+  border:1px solid rgba(255,255,255,0.04);
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-/* ================================
-   SOBRE MIM
-================================ */
-.sobre-mim {
-    padding: 150px;
-    padding: 15px;
-    border-left: 4px solid var(--cor-secundaria);
+/* Profile block */
+.profile figure{
+  width:180px;
+  height:240px;
+  margin:0;
+  overflow:hidden;
+  border-radius:12px;
+  border:2px solid rgba(255,255,255,0.03);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,#0d0d0e,#121214);
+}
+.profile img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1);
+  transition:transform .45s ease;
+}
+.profile img:hover{ transform:scale(1.05) }
+
+/* Bio */
+.bio h2{margin:0 0 8px 0}
+.bio p{color:var(--muted); margin:0 0 12px 0}
+.stats{
+  display:flex;
+  gap:18px;
+  list-style:none;
+  padding:0;
+  margin:0 0 14px 0;
+}
+.stats li{ text-align:center }
+.stats strong{ display:block; font-size:1.25rem; color:var(--accent) }
+.stats span{ display:block; font-size:0.8rem; color:var(--muted) }
+
+/* Button */
+.btn{
+  display:inline-block;
+  padding:10px 18px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#111;
+  text-decoration:none;
+  border-radius:12px;
+  font-weight:700;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.btn:hover{ transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.5) }
+
+/* Contatos */
+.contatos ul{ list-style:none; padding:0; margin:8px 0 0 0; display:flex; gap:12px; flex-wrap:wrap }
+.contatos a{ color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px; background:var(--glass) }
+
+/* Footer */
+.site-footer{
+  border-top:1px solid rgba(255,255,255,0.03);
+  padding:20px 0;
+  color:var(--muted);
+  margin-top:36px;
+  text-align:center;
 }
 
-.sobre-mim h1 {
-    color: var(--cor-secundaria);
+/* Responsive */
+@media (min-width:900px){
+  .main-content{ grid-template-columns: 1fr 360px; align-items:start }
+  .intro{ flex-direction:row }
+  .bio{ padding:6px 0 }
 }
-
-.sobre-mim p {
-    margin-top: 10px;
-}
-
-/* ================================
-   IDENTIDADE / FOTO
-================================ */
-.id {
-    padding: 20px;
-    background: var(--cor-card);
-    border-radius: 10px;
-}
-
-.id figure {
-    width: 160px;
-    height: 160px;
-    background: #333;
-    border-radius: 50%;
-    margin: 0 auto 15px;
-}
-.id img{
-    width: 150px;
-    height: auto;
-    border-radius: 10px;
-    padding: 10px;
-    align-items: center;
-}
-
-.id p {
-    text-align: center;
-    font-size: 1rem;
-    opacity: 0.8;
-}
-
-/* ================================
-   LISTA DE CONTATOS
-================================ */
-ul {
-    list-style: none;
-}
-
-ul li {
-    padding: 8px 0;
-    font-size: 1.1rem;
-}
-
-ul li:hover {
-    color: var(--cor-secundaria);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* ================================
-   FOOTER
-================================ */
-footer {
-    margin-top: 25px;
-    text-align: center;
-    opacity: 0.6;
+@media (max-width:899px){
+  .header-inner{ flex-direction:column; align-items:flex-start }
+  .Menu ul{ gap:8px; overflow:auto }
+  .profile figure{ width:140px; height:200px }
 }
